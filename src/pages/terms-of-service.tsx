@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@mui/material";
+import Link from "next/link";
 import Layout from "src/components/Layout";
 
 const TermsOfServicePage = () => {
@@ -22,7 +22,7 @@ const TermsOfServicePage = () => {
 
       <p>
         Permission is granted to temporarily download one copy of the materials
-        on inmeta's Website for personal, non-commercial transitory viewing
+        on inmeta&apos;s Website for personal, non-commercial transitory viewing
         only. This is the grant of a license, not a transfer of title, and under
         this license you may not:
       </p>
@@ -34,7 +34,7 @@ const TermsOfServicePage = () => {
           display;
         </li>
         <li>
-          attempt to reverse engineer any software contained on inmeta's
+          attempt to reverse engineer any software contained on inmeta&apos;s
           Website;
         </li>
         <li>
@@ -42,8 +42,8 @@ const TermsOfServicePage = () => {
           materials; or
         </li>
         <li>
-          transferring the materials to another person or "mirror" the materials
-          on any other server.
+          transferring the materials to another person or &ldquo;mirror&ldquo;
+          the materials on any other server.
         </li>
       </ul>
 
@@ -52,22 +52,22 @@ const TermsOfServicePage = () => {
         restrictions. Upon termination, your viewing right will also be
         terminated and you should destroy any downloaded materials in your
         possession whether it is printed or electronic format. These Terms of
-        Service has been created with the help of the{" "}
-        <a href="https://www.termsofservicegenerator.net">
+        Service has been created with the help of the -
+        <Link href="https://www.termsofservicegenerator.net">
           Terms Of Service Generator
-        </a>
+        </Link>
         .
       </p>
 
       <h2>3. Disclaimer</h2>
 
       <p>
-        All the materials on inmeta’s Website are provided "as is". inmeta makes
-        no warranties, may it be expressed or implied, therefore negates all
-        other warranties. Furthermore, inmeta does not make any representations
-        concerning the accuracy or reliability of the use of the materials on
-        its Website or otherwise relating to such materials or any sites linked
-        to this Website.
+        All the materials on inmeta’s Website are provided &ldquo;as is&ldquo;.
+        inmeta makes no warranties, may it be expressed or implied, therefore
+        negates all other warranties. Furthermore, inmeta does not make any
+        representations concerning the accuracy or reliability of the use of the
+        materials on its Website or otherwise relating to such materials or any
+        sites linked to this Website.
       </p>
 
       <h2>4. Limitations</h2>
@@ -117,8 +117,8 @@ const TermsOfServicePage = () => {
       <h2>9. Governing Law</h2>
 
       <p>
-        Any claim related to inmeta's Website shall be governed by the laws of
-        no without regards to its conflict of law provisions.
+        Any claim related to inmeta&apos;s Website shall be governed by the laws
+        of no without regards to its conflict of law provisions.
       </p>
     </Layout>
   );

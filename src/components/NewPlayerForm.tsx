@@ -13,6 +13,7 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
+import Link from "next/link";
 import * as yup from "yup";
 import { Field, Form, Formik } from "formik";
 
@@ -108,7 +109,7 @@ const NewPlayerForm = (props: Props) => {
                     />
                     <Typography>
                       I agree to the{" "}
-                      <a href="/terms-of-service">Terms of Service</a>
+                      <Link href="/terms-of-service">Terms of Service</Link>
                     </Typography>
                   </Box>
                 </Form>

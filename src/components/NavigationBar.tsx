@@ -1,5 +1,6 @@
 import { AppBar, Box, Button, Toolbar } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
+import Link from "next/link";
 
 const NavigationBar = () => {
   const classes = useStyles();
@@ -15,17 +16,18 @@ const NavigationBar = () => {
       <Toolbar>
         <Box>
           <Button className={classes.button} color="inherit">
-            <a href={"/"} style={{ textDecoration: "none", color: "inherit" }}>
-              home
-            </a>
+            <Link href={"/"} passHref>
+              <span style={{ textDecoration: "none", color: "inherit" }}>
+                home
+              </span>
+            </Link>
           </Button>
           <Button className={classes.button} color="inherit">
-            <a
-              href={"/raffle"}
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              raffle
-            </a>
+            <Link href={"/raffle"} passHref>
+              <span style={{ textDecoration: "none", color: "inherit" }}>
+                raffle
+              </span>
+            </Link>
           </Button>
         </Box>
       </Toolbar>
