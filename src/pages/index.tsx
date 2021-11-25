@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import {
@@ -32,14 +32,10 @@ const HomePage: NextPage = () => {
   const [open, setOpen] = useState(false);
 
   const classes = useStyles();
-  const animation: any = useRef<Lottie>(null);
   const navigate = useRouter();
 
   useEffect(() => {
-    fetchPlayers().then();
-    return () => {
-      animation.current && animation.current.reset();
-    };
+    fetchPlayers();
   }, []);
 
   const fetchPlayers = async () => {
@@ -89,12 +85,7 @@ const HomePage: NextPage = () => {
         alignItems={"center"}
       >
         <Typography variant={"h2"}>Scoreboard</Typography>
-        <Lottie
-          ref={animation}
-          options={defaultOptions}
-          height={100}
-          width={400}
-        />
+        <Lottie options={defaultOptions} height={100} width={400} />
       </Box>
       <div className={classes.toolbar}>
         <Typography variant="h6" component="h2" color="primary">
@@ -102,7 +93,7 @@ const HomePage: NextPage = () => {
         </Typography>
         <Button
           onClick={handleClickOpen}
-          variant="outlined"
+          variant={!players.length ? "contained" : "outlined"}
           color="secondary"
           startIcon={<PersonAdd />}
         >

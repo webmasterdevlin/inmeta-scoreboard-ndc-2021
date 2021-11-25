@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NextPage } from "next";
 import Lottie from "react-lottie";
 import { Box, Button, Typography } from "@mui/material";
@@ -15,9 +15,7 @@ const RafflePage: NextPage = () => {
   const [players, setPlayers] = useState<PlayerModel[]>([]);
   const [winner, setWinner] = useState<PlayerModel | null>(null);
   const [showAnimation, setShowAnimation] = useState(false);
-  const animation1: any = useRef<Lottie>(null);
-  const animation2: any = useRef<Lottie>(null);
-  const animation3: any = useRef<Lottie>(null);
+
   const drumOptions = {
     loop: true,
     autoplay: true,
@@ -46,14 +44,7 @@ const RafflePage: NextPage = () => {
   };
 
   useEffect(() => {
-    fetchPlayers().then();
-
-    return () => {
-      // cleanup
-      animation1.current && animation1.current.reset();
-      animation2.current && animation2.current.reset();
-      animation3.current && animation3.current.reset();
-    };
+    fetchPlayers();
   }, []);
 
   const fetchPlayers = async () => {
@@ -77,12 +68,7 @@ const RafflePage: NextPage = () => {
     <Layout title="Raffle | inmeta">
       {winner && (
         <>
-          <Lottie
-            ref={animation1}
-            options={medalOptions}
-            height={400}
-            width={400}
-          />
+          <Lottie options={medalOptions} height={400} width={400} />
           <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
             <Box mb={4}>
               <Typography variant={"h4"}>
@@ -101,18 +87,8 @@ const RafflePage: NextPage = () => {
       )}
       {showAnimation && (
         <>
-          <Lottie
-            ref={animation2}
-            options={countdownOptions}
-            height={200}
-            width={200}
-          />
-          <Lottie
-            ref={animation3}
-            options={drumOptions}
-            height={400}
-            width={400}
-          />
+          <Lottie options={countdownOptions} height={200} width={200} />
+          <Lottie options={drumOptions} height={400} width={400} />
         </>
       )}
 
@@ -123,6 +99,7 @@ const RafflePage: NextPage = () => {
             size={"large"}
             variant={"contained"}
             style={{ color: "#fff" }}
+            disabled={!players.length}
           >
             draw a winner
           </Button>
