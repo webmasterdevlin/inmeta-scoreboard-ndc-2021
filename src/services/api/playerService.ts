@@ -1,7 +1,7 @@
 import { PlayerModel } from "src/models/playerModel";
 import initializeDbContainers from "src/utils/cosmosDbConnect";
 
-const partitionNameKey = "players";
+const partitionNameKey = "/players";
 
 export const playerFind = async (): Promise<PlayerModel[]> => {
   try {

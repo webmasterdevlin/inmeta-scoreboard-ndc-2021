@@ -4,10 +4,10 @@ module.exports = {
   serverRuntimeConfig: {
     // Will only be available on the server side
     cosmos: {
-      endpoint: process.env.COSMOS_ENDPOINT,
-      key: process.env.COSMOS_KEY,
-      databaseId: process.env.COSMOS_DATABASE_ID,
-      containerId: process.env.COSMOS_CONTAINER_ID,
+      endpoint: "https://scoreboard-dev.documents.azure.com:443/",
+      key: "1RUu8EXcVMJGse8GlhrQcL8eTq8z9jXyKxDLWNof5V72opNB6Pc4HGJGa0XHc8oQ3h9rvuwi6djssDTMIuKzAg==",
+      databaseId: "ScoreCardDb",
+      containerId: "ScoreCardContainer",
     },
   },
   publicRuntimeConfig: {

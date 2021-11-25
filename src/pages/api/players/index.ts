@@ -10,6 +10,7 @@ const handler = nc()
       res.statusCode = 200;
       res.json(playeres);
     } catch (e) {
+      console.log(e);
       res.statusCode = 500;
       res.json(e);
     }

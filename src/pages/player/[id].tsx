@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { GetStaticProps, NextPage } from "next";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import { Box, Button, Typography } from "@mui/material";
-import { Edit, Delete } from "@mui/icons-material";
+import { Edit, Delete, PanoramaSharp } from "@mui/icons-material";
 import { PlayerModel } from "src/models/playerModel";
 import {
   deleteAxios,
@@ -19,11 +19,13 @@ type Props = {
   errors: string;
 };
 
-const PlayerPage: NextPage<Props> = ({ id }) => {
+const PlayerPage: NextPage<Props> = () => {
   const [player, setPlayer] = useState<PlayerModel>({} as PlayerModel);
   const [open, setOpen] = useState(false);
 
   const navigate = useRouter();
+  const { id } = navigate.query;
+
   useEffect(() => {
     fetchPlayer().then();
   }, []);
@@ -113,13 +115,3 @@ const PlayerPage: NextPage<Props> = ({ id }) => {
 };
 
 export default PlayerPage;
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  try {
-    const id = params.id as string;
-    // const { data } = await getByIdAxios<PlayerModel>(EndPoints.players, id);
-    return { props: { id } };
-  } catch (err) {
-    return { props: { errors: err.message } };
-  }
-};
