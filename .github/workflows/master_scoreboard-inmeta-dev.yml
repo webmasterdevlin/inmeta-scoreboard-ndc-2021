@@ -19,7 +19,7 @@ jobs:
           node-version: '14.x'
 
       - name: Make envfile
-        uses: SpicyPizza/create-envfile@v1.2
+        uses: SpicyPizza/create-envfile@v1
         with:
           envkey_DEBUG: false
           envkey_COSMOS_ENDPOINT: ${{secrets.COSMOS_ENDPOINT}}
