@@ -5,7 +5,7 @@ import { Box, Button, Typography } from "@mui/material";
 
 import drumData from "src/animations/drum.json";
 import countDownData from "src/animations/countdown.json";
-import congratsData from "src/animations/congratulation.json";
+import medalData from "src/animations/medal.json";
 import { PlayerModel } from "src/models/playerModel";
 import { getAxios } from "src/axios/generic-api-calls";
 import { EndPoints } from "src/axios/api-config";
@@ -36,10 +36,10 @@ const RafflePage: NextPage = () => {
     },
   };
 
-  const congratsOptions = {
+  const medalOptions = {
     loop: true,
     autoplay: true,
-    animationData: congratsData,
+    animationData: medalData,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
@@ -79,7 +79,7 @@ const RafflePage: NextPage = () => {
         <>
           <Lottie
             ref={animation1}
-            options={congratsOptions}
+            options={medalOptions}
             height={400}
             width={400}
           />
