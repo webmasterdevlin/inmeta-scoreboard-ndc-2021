@@ -65,4 +65,4 @@ jobs:
           app-name: 'scoreboard-inmeta-dev'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_623036A33C1346AFADF698018069D3BF }}
-          package: .
+          package: ./release
