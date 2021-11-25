@@ -23,7 +23,7 @@ import SharedInput from "./SharedInput";
 type Props = {
   open: boolean;
   onClose: () => void;
-  onSubmit: (player: PlayerModel) => void;
+  onSubmit: (player: PlayerModel) => Promise<void>;
 };
 
 const NewPlayerForm = (props: Props) => {
@@ -56,9 +56,13 @@ const NewPlayerForm = (props: Props) => {
               .required()
               .oneOf([true], "Must Accept Terms of Service"),
           })}
-          onSubmit={(values, actions) => {
-            props.onSubmit(values);
-            actions.resetForm();
+          onSubmit={async (values, actions) => {
+            try {
+              await props.onSubmit(values);
+              actions.resetForm();
+            } catch (e) {
+              alert(e.message);
+            }
           }}
         >
           {(formikProps) => (
@@ -109,7 +113,17 @@ const NewPlayerForm = (props: Props) => {
                     />
                     <Typography>
                       I agree to the{" "}
-                      <Link href="/terms-of-service">Terms of Service</Link>
+                      <Link href="/terms-of-service" passHref>
+                        <span
+                          style={{
+                            color: "#00aaa1",
+                            textDecoration: "underline",
+                            cursor: "pointer",
+                          }}
+                        >
+                          Terms of Service
+                        </span>
+                      </Link>
                     </Typography>
                   </Box>
                 </Form>

@@ -7,7 +7,6 @@ import {
   DialogContentText,
   DialogTitle,
   Paper,
-  TextField,
 } from "@mui/material";
 import React from "react";
 import * as yup from "yup";
@@ -19,7 +18,7 @@ import SharedInput from "./SharedInput";
 type Props = {
   open: boolean;
   onClose: () => void;
-  onSubmit: (player: PlayerModel) => void;
+  onSubmit: (player: PlayerModel) => Promise<void>;
   player: PlayerModel;
 };
 
@@ -38,9 +37,13 @@ export const EditPlayerForm = (props: Props) => {
             company: yup.string().label("Company").optional(),
             points: yup.number().label("Points").required(),
           })}
-          onSubmit={(values, actions) => {
-            props.onSubmit(values);
-            actions.resetForm();
+          onSubmit={async (values, actions) => {
+            try {
+              await props.onSubmit(values);
+              actions.resetForm();
+            } catch (e) {
+              alert(e.message);
+            }
           }}
         >
           {(formikProps) => (
