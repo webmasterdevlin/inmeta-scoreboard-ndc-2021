@@ -1,11 +1,3 @@
-# Fullstack Next.js with old Redux and CosmosDB
-
-
-## Database
-CosmosDB
-
-### environment variables storage
-.env.local
-
-
-![screenshot](./screenshot.png)
+# inmeta's scoreboard app for NDC Oslo events
+- Built using full-stack Next.js and Microsoft Azure CosmosDB
+- CI/CD pipeline using GitHub Actions
