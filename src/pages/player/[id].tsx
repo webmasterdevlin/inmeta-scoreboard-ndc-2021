@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import { Box, Button, Typography } from "@mui/material";
-import { Edit, Delete, PanoramaSharp } from "@mui/icons-material";
+import { Edit, Delete } from "@mui/icons-material";
 import { PlayerModel } from "src/models/playerModel";
 import {
   deleteAxios,
@@ -31,11 +31,15 @@ const PlayerPage: NextPage<Props> = () => {
   }, []);
 
   const fetchPlayer = async () => {
-    const { data } = await getByIdAxios<PlayerModel>(
-      EndPoints.players,
-      id as string
-    );
-    setPlayer(data);
+    try {
+      const { data } = await getByIdAxios<PlayerModel>(
+        EndPoints.players,
+        id as string
+      );
+      setPlayer(data);
+    } catch (e) {
+      alert(e.message);
+    }
   };
 
   const handleClickOpen = () => {
@@ -64,7 +68,7 @@ const PlayerPage: NextPage<Props> = () => {
 
     try {
       await deleteAxios(EndPoints.players, player.id);
-      navigate.push("/");
+      await navigate.push("/");
     } catch (e: any) {
       alert(e.message);
     }

@@ -5,10 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "backend": "json-server --watch src/json-server/db.json --port 5000",
-    "dev:fullstack": "concurrently \"npm run backend\" \"npm run dev\""
+    "start": "next start"
   },
   "dependencies": {
     "@azure/cosmos": "^3.14.1",
@@ -37,10 +34,8 @@
     "@types/react": "17.0.37",
     "@types/react-dom": "^17.0.11",
     "@types/yup": "^0.29.13",
-    "concurrently": "^6.4.0",
     "eslint": "^7.32.0",
     "eslint-config-next": "12.0.4",
-    "json-server": "^0.17.0",
     "prettier": "^2.4.1",
     "redux-devtools-extension": "^2.13.9",
     "reflect-metadata": "^0.1.13",

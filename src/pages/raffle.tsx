@@ -37,7 +37,7 @@ const RafflePage: NextPage = () => {
   };
 
   const congratsOptions = {
-    loop: false,
+    loop: true,
     autoplay: true,
     animationData: congratsData,
     rendererSettings: {

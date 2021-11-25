@@ -3,12 +3,14 @@ import nc from "next-connect";
 
 import { playerFind, playerSave } from "src/services/api/playerService";
 
+// GET and POST for /api/players
+
 const handler = nc()
   .get(async (req: NextApiRequest, res: NextApiResponse) => {
     try {
-      const playeres = await playerFind();
+      const players = await playerFind();
       res.statusCode = 200;
-      res.json(playeres);
+      res.json(players);
     } catch (e) {
       console.log(e);
       res.statusCode = 500;
