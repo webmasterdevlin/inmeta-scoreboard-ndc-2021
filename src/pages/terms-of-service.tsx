@@ -1,8 +1,10 @@
 import React from "react";
+import { NextPage } from "next";
 import Link from "next/link";
+
 import Layout from "src/components/Layout";
 
-const TermsOfServicePage = () => {
+const TermsOfServicePage: NextPage = () => {
   return (
     <Layout title="Terms of Service | inmeta">
       <h1>Website Terms and Conditions of Use</h1>

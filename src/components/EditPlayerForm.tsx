@@ -12,7 +12,7 @@ import React from "react";
 import * as yup from "yup";
 import { Form, Formik } from "formik";
 
-import { PlayerModel } from "../models/playerModel";
+import { PlayerModel } from "src/models/playerModel";
 import SharedInput from "./SharedInput";
 
 type Props = {
@@ -41,7 +41,7 @@ export const EditPlayerForm = (props: Props) => {
             try {
               await props.onSubmit(values);
               actions.resetForm();
-            } catch (e) {
+            } catch (e: any) {
               alert(e.message);
             }
           }}

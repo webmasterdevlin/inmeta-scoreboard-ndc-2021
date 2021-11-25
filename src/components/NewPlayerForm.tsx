@@ -7,9 +7,7 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
-  FormControlLabel,
   Paper,
-  TextField,
   Typography,
 } from "@mui/material";
 import React from "react";
@@ -17,7 +15,7 @@ import Link from "next/link";
 import * as yup from "yup";
 import { Field, Form, Formik } from "formik";
 
-import { PlayerModel } from "../models/playerModel";
+import { PlayerModel } from "src/models/playerModel";
 import SharedInput from "./SharedInput";
 
 type Props = {
@@ -60,7 +58,7 @@ const NewPlayerForm = (props: Props) => {
             try {
               await props.onSubmit(values);
               actions.resetForm();
-            } catch (e) {
+            } catch (e: any) {
               alert(e.message);
             }
           }}

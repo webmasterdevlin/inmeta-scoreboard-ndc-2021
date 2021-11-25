@@ -12,7 +12,7 @@ export default async function initializeDbContainers(
     key,
   });
 
-  let requestedContainer: Container;
+  let requestedContainer: Container | null;
 
   try {
     const { database } = await client.databases.createIfNotExists({

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { Box, Button, Typography } from "@mui/material";
 import { Edit, Delete } from "@mui/icons-material";
+
 import { PlayerModel } from "src/models/playerModel";
 import {
   deleteAxios,
@@ -10,7 +11,6 @@ import {
   putAxios,
 } from "src/axios/generic-api-calls";
 import { EndPoints } from "src/axios/api-config";
-
 import { EditPlayerForm } from "src/components/EditPlayerForm";
 import Layout from "src/components/Layout";
 
@@ -37,7 +37,7 @@ const PlayerPage: NextPage<Props> = () => {
         id as string
       );
       setPlayer(data);
-    } catch (e) {
+    } catch (e: any) {
       alert(e.message);
     }
   };

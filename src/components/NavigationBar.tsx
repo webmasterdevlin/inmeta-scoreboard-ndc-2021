@@ -5,8 +5,6 @@ import Link from "next/link";
 const NavigationBar = () => {
   const classes = useStyles();
 
-  /* not using react-router to release the animation resource */
-
   return (
     <AppBar
       position="static"

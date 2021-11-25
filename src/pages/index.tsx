@@ -19,12 +19,11 @@ import { PersonAdd } from "@mui/icons-material";
 import { makeStyles } from "@mui/styles";
 import Lottie from "react-lottie";
 
-import { PlayerModel } from "../models/playerModel";
-import { getAxios, postAxios } from "../axios/generic-api-calls";
-import { EndPoints } from "../axios/api-config";
-import NewPlayerForm from "../components/NewPlayerForm";
-import animationData from "../animations/pacman.json";
-
+import animationData from "src/animations/pacman.json";
+import { PlayerModel } from "src/models/playerModel";
+import { getAxios, postAxios } from "src/axios/generic-api-calls";
+import { EndPoints } from "src/axios/api-config";
+import NewPlayerForm from "src/components/NewPlayerForm";
 import Layout from "src/components/Layout";
 
 const HomePage: NextPage = () => {
