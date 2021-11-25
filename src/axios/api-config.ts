@@ -1,8 +1,9 @@
 import axios from "axios";
 
-export const api = axios.create();
+export const api = axios.create({
+  baseURL: "/api/",
+});
 
 export const EndPoints = {
-  heroes: "/api/heroes",
-  villains: "/api/villains",
+  players: "players",
 };

@@ -1,14 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import nc from "next-connect";
 
-import { heroFind, heroSave } from "src/services/api/heroService";
+import { playerFind, playerSave } from "src/services/api/playerService";
 
 const handler = nc()
   .get(async (req: NextApiRequest, res: NextApiResponse) => {
     try {
-      const heroes = await heroFind();
+      const playeres = await playerFind();
       res.statusCode = 200;
-      res.json(heroes);
+      res.json(playeres);
     } catch (e) {
       res.statusCode = 500;
       res.json(e);
@@ -16,9 +16,9 @@ const handler = nc()
   })
   .post(async (req: NextApiRequest, res: NextApiResponse) => {
     try {
-      const hero = await heroSave(req.body);
+      const player = await playerSave(req.body);
       res.statusCode = 201;
-      res.json({ ...hero });
+      res.json({ ...player });
     } catch (e) {
       res.statusCode = 500;
       res.json(e);

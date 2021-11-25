@@ -5,11 +5,10 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 
 import NavigationBar from "src/components/NavigationBar";
 import theme from "src/styles/theme";
-import { wrapper } from "src/store";
 
-type Props = {
+interface Props {
   Component: React.Component;
-};
+}
 /*
  * Use _app.js to extend react applications in Next.js.
  * Note: Per the Next.js docs, using _app.js disables the ability to perform automatic static optimization,
@@ -30,4 +29,4 @@ class MyApp extends App<Props> {
   }
 }
 
-export default wrapper.withRedux(MyApp);
+export default MyApp;

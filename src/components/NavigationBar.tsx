@@ -1,59 +1,47 @@
-import React, { Component } from "react";
-import { connect, MapDispatchToProps } from "react-redux";
+import { AppBar, Box, Button, Toolbar } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 
-import { AppBar, Box, Link, Theme, Toolbar } from "@mui/material";
-import { withStyles } from "@mui/styles";
+const NavigationBar = () => {
+  const classes = useStyles();
 
-import { fetchHeroes } from "src/features/heroes/heroActions";
-import { RootState } from "src/store";
+  /* not using react-router to release the animation resource */
 
-/*local state's shape*/
-interface IState {}
-
-/*props' shape*/
-interface IProps {
-  classes: any;
-  fetchHeroes: () => Promise<void>;
-}
-
-class NavigationBar extends Component<IProps, IState> {
-  render() {
-    const { classes } = this.props;
-    return (
-      <AppBar position="static" style={{ marginBottom: "2rem" }}>
-        <Toolbar>
-          inmeta
-        </Toolbar>
-      </AppBar>
-    );
-  }
-}
-
-const mapStateToProps = (state: RootState) => {
-  return {
-    heroStore: state.heroStore,
-  };
+  return (
+    <AppBar
+      position="static"
+      style={{ marginBottom: "2rem" }}
+      color={"transparent"}
+    >
+      <Toolbar>
+        <Box>
+          <Button className={classes.button} color="inherit">
+            <a href={"/"} style={{ textDecoration: "none", color: "inherit" }}>
+              home
+            </a>
+          </Button>
+          <Button className={classes.button} color="inherit">
+            <a
+              href={"/raffle"}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              raffle
+            </a>
+          </Button>
+        </Box>
+      </Toolbar>
+    </AppBar>
+  );
 };
 
-const mapDispatchToProps = (dispatch: MapDispatchToProps<any, any>) => {
-  return {
-    fetchHeroes: async () => await dispatch(fetchHeroes()),
-  };
-};
+export default NavigationBar;
 
-const styles: any = (theme: Theme) => ({
-  button: {
-    margin: "0 0.5rem",
-    fontWeight: "bold",
-    "&:hover": {
-      textDecoration: "none",
+const useStyles = makeStyles(() =>
+  createStyles({
+    button: {
+      margin: "0 0.5rem",
+      "&:focus": {
+        outline: "none",
+      },
     },
-    "&:focus": {
-      outline: "none",
-    },
-  },
-});
-
-export default withStyles(styles)(
-  connect(mapStateToProps, mapDispatchToProps)(NavigationBar)
+  })
 );

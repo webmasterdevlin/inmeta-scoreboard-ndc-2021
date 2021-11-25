@@ -1,13 +1,13 @@
-import { IHeroModel } from "src/models/heroModel";
+import { PlayerModel } from "src/models/playerModel";
 import initializeDbContainers from "src/utils/cosmosDbConnect";
 
-const partitionNameKey = "Heroes";
+const partitionNameKey = "players";
 
-export const heroFind = async (): Promise<IHeroModel[]> => {
+export const playerFind = async (): Promise<PlayerModel[]> => {
   try {
     const container = await initializeDbContainers(partitionNameKey);
     const { resources } = await container.items
-      .readAll<IHeroModel>()
+      .readAll<PlayerModel>()
       .fetchAll();
 
     return resources;
@@ -16,7 +16,7 @@ export const heroFind = async (): Promise<IHeroModel[]> => {
   }
 };
 
-export const heroFindByIdAndRemove = async (id: string): Promise<void> => {
+export const playerFindByIdAndRemove = async (id: string): Promise<void> => {
   try {
     const container = await initializeDbContainers(partitionNameKey);
     await container.item(id).delete();
@@ -25,10 +25,10 @@ export const heroFindByIdAndRemove = async (id: string): Promise<void> => {
   }
 };
 
-export const heroSave = async (body: IHeroModel): Promise<IHeroModel> => {
+export const playerSave = async (body: PlayerModel): Promise<PlayerModel> => {
   try {
     const container = await initializeDbContainers(partitionNameKey);
-    const { resource } = await container.items.create<IHeroModel>(body);
+    const { resource } = await container.items.create<PlayerModel>(body);
 
     return resource;
   } catch (e) {
@@ -36,9 +36,9 @@ export const heroSave = async (body: IHeroModel): Promise<IHeroModel> => {
   }
 };
 
-export const heroFindByIdAndUpdate = async (
+export const playerFindByIdAndUpdate = async (
   id: string,
-  body: IHeroModel
+  body: PlayerModel
 ): Promise<void> => {
   try {
     const container = await initializeDbContainers(partitionNameKey);
@@ -48,10 +48,10 @@ export const heroFindByIdAndUpdate = async (
   }
 };
 
-export const heroFindById = async (id: string): Promise<IHeroModel> => {
+export const playerFindById = async (id: string): Promise<PlayerModel> => {
   try {
     const container = await initializeDbContainers(partitionNameKey);
-    const { resource } = await container.item(id).read<IHeroModel>();
+    const { resource } = await container.item(id).read<PlayerModel>();
 
     return resource;
   } catch (e) {

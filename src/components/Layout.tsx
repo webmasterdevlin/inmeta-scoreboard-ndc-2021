@@ -16,23 +16,9 @@ const Layout = ({ children, title = "This is the default title" }: Props) => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-
-      <Container maxWidth={"lg"}>
-        <Box mt={4} mb={4}>
-          {children}
-        </Box>
+      <Container>
+        <Box mb={5}>{children}</Box>
       </Container>
-      <footer>
-        <AppBar position="static" color="primary">
-          <Container maxWidth="md">
-            <Toolbar>
-              <Typography variant="body1" color="inherit">
-                © 2021 - inmeta.
-              </Typography>
-            </Toolbar>
-          </Container>
-        </AppBar>
-      </footer>
     </>
   );
 };

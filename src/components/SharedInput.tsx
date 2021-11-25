@@ -1,30 +1,30 @@
-import React from "react";
-import { Field, useFormikContext } from "formik";
 import { Box, TextField } from "@mui/material";
-import { makeStyles, createStyles } from "@mui/styles";
+import { createStyles, makeStyles } from "@mui/styles";
+import { Field, useFormikContext } from "formik";
 
 type Props = {
   id: string;
   label: string;
+  required?: boolean;
   dataTestId?: string;
 };
 
-const SharedInput = ({ id, label, dataTestId }: Props) => {
+const SharedInput = (props: Props) => {
   const classes = useStyles();
   const formik = useFormikContext<any>();
-
   return (
     <Box mb={2}>
       <Field
-        label={label}
-        id={id}
-        data-testid={dataTestId}
+        id={props.id}
+        required={props.required}
+        label={props.label}
+        data-testid={props.dataTestId}
         className={classes.field}
         type={"text"}
-        name={id}
+        name={props.id}
         as={TextField}
-        error={!!(formik.touched[id] && formik.errors[id])}
-        helperText={formik.touched[id] ? formik.errors[id] : null}
+        error={!!(formik.touched[props.id] && formik.errors[props.id])}
+        helperText={formik.touched[props.id] ? formik.errors[props.id] : null}
       />
     </Box>
   );
