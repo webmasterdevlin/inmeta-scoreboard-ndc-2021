@@ -9,6 +9,12 @@ on:
       - master
   workflow_dispatch:
 
+env:
+  COSMOS_ENDPOINT: ${{secrets.COSMOS_ENDPOINT}}
+  COSMOS_KEY: ${{secrets.COSMOS_KEY}}
+  COSMOS_DATABASE_ID: ${{secrets.COSMOS_DATABASE_ID}}
+  COSMOS_CONTAINER_ID: ${{secrets.COSMOS_CONTAINER_ID}}
+
 jobs:
   build:
     runs-on: ubuntu-latest
