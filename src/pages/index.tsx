@@ -25,16 +25,20 @@ import { getAxios, postAxios } from "src/axios/generic-api-calls";
 import { EndPoints } from "src/axios/api-config";
 import NewPlayerForm from "src/components/NewPlayerForm";
 import Layout from "src/components/Layout";
+import { isAuthenticated } from "../utils/auth";
 
 const HomePage: NextPage = () => {
   const [loading, setLoading] = useState(false);
   const [players, setPlayers] = useState<PlayerModel[]>([]);
   const [open, setOpen] = useState(false);
-
+  const [loggedIn, setLoggedIn] = useState(false);
   const classes = useStyles();
   const navigate = useRouter();
 
   useEffect(() => {
+    const auth = isAuthenticated();
+    if (auth) setLoggedIn(true);
+
     fetchPlayers();
   }, []);
 
@@ -75,6 +79,14 @@ const HomePage: NextPage = () => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+
+  if (!loggedIn) {
+    return (
+      <Layout title="Scoreboard | inmeta">
+        <h1>Please login to use the scoreboard</h1>
+      </Layout>
+    );
+  }
 
   return (
     <Layout title="Scoreboard | inmeta">

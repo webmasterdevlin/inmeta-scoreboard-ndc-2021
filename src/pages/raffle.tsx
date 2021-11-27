@@ -10,11 +10,13 @@ import { PlayerModel } from "src/models/playerModel";
 import { getAxios } from "src/axios/generic-api-calls";
 import { EndPoints } from "src/axios/api-config";
 import Layout from "src/components/Layout";
+import { isAuthenticated } from "../utils/auth";
 
 const RafflePage: NextPage = () => {
   const [players, setPlayers] = useState<PlayerModel[]>([]);
   const [winner, setWinner] = useState<PlayerModel | null>(null);
   const [showAnimation, setShowAnimation] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const drumOptions = {
     loop: true,
@@ -44,6 +46,9 @@ const RafflePage: NextPage = () => {
   };
 
   useEffect(() => {
+    const auth = isAuthenticated();
+    if (auth) setLoggedIn(true);
+
     fetchPlayers();
   }, []);
 
@@ -63,6 +68,14 @@ const RafflePage: NextPage = () => {
       setShowAnimation(false);
     }, 10000);
   };
+
+  if (!loggedIn) {
+    return (
+      <Layout title="Raffle | inmeta">
+        <h1>Please login to use the scoreboard</h1>
+      </Layout>
+    );
+  }
 
   return (
     <Layout title="Raffle | inmeta">
