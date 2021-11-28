@@ -72,7 +72,11 @@ const RafflePage: NextPage = () => {
   if (!loggedIn) {
     return (
       <Layout title="Raffle | inmeta">
-        <h1>Please login to use the scoreboard</h1>
+        <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+          <Typography variant={"h2"}>
+            🗝️ Please login to use the scoreboard
+          </Typography>
+        </Box>
       </Layout>
     );
   }
