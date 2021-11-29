@@ -48,9 +48,10 @@ const RafflePage: NextPage = () => {
 
   useEffect(() => {
     const auth = isAuthenticated();
-    if (auth) setLoggedIn(true);
-
-    fetchPlayers();
+    if (auth) {
+      setLoggedIn(true);
+      fetchPlayers();
+    }
   }, []);
 
   const fetchPlayers = async () => {

@@ -111,17 +111,19 @@ const NewPlayerForm = (props: Props) => {
                     />
                     <Typography>
                       I agree to the{" "}
-                      <Link href="/terms-of-service" passHref>
-                        <span
-                          style={{
-                            color: "#00aaa1",
-                            textDecoration: "underline",
-                            cursor: "pointer",
-                          }}
-                        >
-                          Terms of Service
-                        </span>
-                      </Link>
+                      {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+                      <a
+                        href="/terms-of-service"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          color: "#00aaa1",
+                          textDecoration: "underline",
+                          cursor: "pointer",
+                        }}
+                      >
+                        Terms of Service
+                      </a>
                     </Typography>
                   </Box>
                 </Form>
