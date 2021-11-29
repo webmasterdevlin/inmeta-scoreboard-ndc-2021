@@ -26,6 +26,7 @@ import { EndPoints } from "src/axios/api-config";
 import NewPlayerForm from "src/components/NewPlayerForm";
 import Layout from "src/components/Layout";
 import { isAuthenticated } from "../utils/auth";
+import ShouldLogin from "../components/ShouldLogin";
 
 const HomePage: NextPage = () => {
   const [loading, setLoading] = useState(false);
@@ -81,15 +82,7 @@ const HomePage: NextPage = () => {
   };
 
   if (!loggedIn) {
-    return (
-      <Layout title="Scoreboard | inmeta">
-        <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
-          <Typography variant={"h2"}>
-            🗝️ Please login to use the scoreboard
-          </Typography>
-        </Box>
-      </Layout>
-    );
+    return <ShouldLogin title={"Scoreboard | inmeta"} />;
   }
 
   return (

@@ -11,6 +11,7 @@ import { getAxios } from "src/axios/generic-api-calls";
 import { EndPoints } from "src/axios/api-config";
 import Layout from "src/components/Layout";
 import { isAuthenticated } from "../utils/auth";
+import ShouldLogin from "../components/ShouldLogin";
 
 const RafflePage: NextPage = () => {
   const [players, setPlayers] = useState<PlayerModel[]>([]);
@@ -70,15 +71,7 @@ const RafflePage: NextPage = () => {
   };
 
   if (!loggedIn) {
-    return (
-      <Layout title="Raffle | inmeta">
-        <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
-          <Typography variant={"h2"}>
-            🗝️ Please login to use the scoreboard
-          </Typography>
-        </Box>
-      </Layout>
-    );
+    return <ShouldLogin title={"Raffle | inmeta"} />;
   }
 
   return (
