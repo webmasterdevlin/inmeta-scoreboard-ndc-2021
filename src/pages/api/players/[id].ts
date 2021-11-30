@@ -11,6 +11,12 @@ import {
 
 const handler = nc()
   .get(async (req: NextApiRequest, res: NextApiResponse) => {
+    const token = req.headers["x-auth"];
+    if (token !== "inmeta") {
+      res.status(401).json({ msg: "No token" });
+      return;
+    }
+
     try {
       const id = req.query.id as string;
       const player = await playerFindById(id);
@@ -21,6 +27,12 @@ const handler = nc()
     }
   })
   .delete(async (req: NextApiRequest, res: NextApiResponse) => {
+    const token = req.headers["x-auth"];
+    if (token !== "inmeta") {
+      res.status(401).json({ msg: "No token" });
+      return;
+    }
+
     try {
       const id = req.query.id as string;
       await playerFindByIdAndRemove(id);
@@ -32,6 +44,12 @@ const handler = nc()
     }
   })
   .put(async (req: NextApiRequest, res: NextApiResponse) => {
+    const token = req.headers["x-auth"];
+    if (token !== "inmeta") {
+      res.status(401).json({ msg: "No token" });
+      return;
+    }
+
     try {
       const id = req.query.id as string;
       await playerFindByIdAndUpdate(id, req.body);
