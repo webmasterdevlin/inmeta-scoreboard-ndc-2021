@@ -1,4 +1,4 @@
-# Leaders board
+# Leaderboard
 - Built using full-stack Next.js and Microsoft Azure CosmosDB
 - Next.js is a full-stack React framework
 - The Microsoft Azure CosmosDB database is used to store the data
@@ -45,10 +45,14 @@
 - code .
 - install material-ui
 - install react-lottie
+- install axios
 - install formik and yup
 - azure cosmosdb
+- set up the .env.local file
+- .env.local file needs properties from .env.local.copy plus the values from the cosmosDb service in Microsoft Azure
 
 ## TODOS
 - only show the top 20 results
 - add ranking numbers from top 1 to top 20
 - make sure to sort after adding new profile in the list so that newly added profile will be inserted at the right position
+- change the color and design of the web app
