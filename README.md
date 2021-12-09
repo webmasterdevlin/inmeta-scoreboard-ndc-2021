@@ -36,6 +36,8 @@
 
 ## CosmosDB
 - the cosmosdb code is located in the src/services/api/playerService.ts
+- cosmosdb is a NoSQL database but different from MongoDB
+- It has partition key which is similar to Casandra db 
 
 ## Steps
 - npx create-next-app my-app --ts
