@@ -72,11 +72,11 @@ const RafflePage: NextPage = () => {
   };
 
   if (!loggedIn) {
-    return <ShouldLogin title={"Raffle | inmeta"} />;
+    return <ShouldLogin title={"Raffle"} />;
   }
 
   return (
-    <Layout title="Raffle | inmeta">
+    <Layout title="Raffle">
       {winner && (
         <>
           <Lottie options={medalOptions} height={400} width={400} />

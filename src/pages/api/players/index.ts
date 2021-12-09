@@ -8,7 +8,7 @@ import { playerFind, playerSave } from "src/services/api/playerService";
 const handler = nc()
   .get(async (req: NextApiRequest, res: NextApiResponse) => {
     const token = req.headers["x-auth"];
-    if (token !== "inmeta") {
+    if (token !== "pass") {
       res.status(401).json({ msg: "No token" });
       return;
     }
@@ -25,7 +25,7 @@ const handler = nc()
   })
   .post(async (req: NextApiRequest, res: NextApiResponse) => {
     const token = req.headers["x-auth"];
-    if (token !== "inmeta") {
+    if (token !== "pass") {
       res.status(401).json({ msg: "No token" });
       return;
     }

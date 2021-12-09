@@ -12,10 +12,10 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "name": "Jon2",
+  "name": "Dev1",
   "mobile": "3543234",
-  "email": "jon2@inmeta.no",
-  "company": "Amazon",
+  "email": "dev@facebook.no",
+  "company": "Meta",
   "points": 50
 }
 
@@ -25,9 +25,9 @@ Content-Type: application/json
 
 {
   "id": "67gi7fro67rf",
-  "name": "Jon",
+  "name": "Dev2",
   "mobile": "23423422",
-  "email": "jon@inmeta.no",
+  "email": "dev2@aws.no",
   "company": "Amazon",
   "points": 50
 }

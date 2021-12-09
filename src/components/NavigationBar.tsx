@@ -23,7 +23,7 @@ const NavigationBar = () => {
 
   const checkLogin = async () => {
     const token = localStorage.getItem("token");
-    if (!token || token !== "inmeta") {
+    if (!token || token !== "pass") {
       await navigate.push("/");
     } else {
       setLoggedIn(true);

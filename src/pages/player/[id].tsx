@@ -75,7 +75,7 @@ const PlayerPage: NextPage<Props> = () => {
   };
 
   return (
-    <Layout title="Player Details | inmeta">
+    <Layout title="Player Details">
       <Box mb={4}>
         <Typography variant={"h2"}>Player Details</Typography>
       </Box>

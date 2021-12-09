@@ -19,7 +19,7 @@ import { PersonAdd } from "@mui/icons-material";
 import { makeStyles } from "@mui/styles";
 import Lottie from "react-lottie";
 
-import animationData from "src/animations/pacman.json";
+import animationData from "src/animations/wave.json";
 import { PlayerModel } from "src/models/playerModel";
 import { getAxios, postAxios } from "src/axios/generic-api-calls";
 import { EndPoints } from "src/axios/api-config";
@@ -83,18 +83,18 @@ const HomePage: NextPage = () => {
   };
 
   if (!loggedIn) {
-    return <ShouldLogin title={"Scoreboard | inmeta"} />;
+    return <ShouldLogin title={"Leaderboard"} />;
   }
 
   return (
-    <Layout title="Scoreboard | inmeta">
+    <Layout title="Leaderboard">
       <Box
         display={"flex"}
         flexDirection={"row"}
         justifyContent={"flex-start"}
         alignItems={"center"}
       >
-        <Typography variant={"h2"}>Scoreboard</Typography>
+        <Typography variant={"h2"}>Leaderboard</Typography>
         <Lottie options={defaultOptions} height={100} width={400} />
       </Box>
       <div className={classes.toolbar}>

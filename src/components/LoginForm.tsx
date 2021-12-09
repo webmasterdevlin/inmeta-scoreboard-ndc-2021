@@ -28,7 +28,7 @@ const LoginForm = ({ open, onClose }: Props) => {
   const navigate = useRouter();
 
   const saveUserAuthDetails = () => {
-    localStorage.setItem("token", "inmeta");
+    localStorage.setItem("token", "pass");
   };
 
   return (
@@ -53,7 +53,7 @@ const LoginForm = ({ open, onClose }: Props) => {
           onSubmit={async (values, formikHelpers) => {
             try {
               if (
-                values.email !== "mohammad.yassin@inmeta.no" &&
+                values.email !== "ruby.jane.cabagnot@avanade.com" &&
                 values.password !== "squidgame"
               ) {
                 alert("Invalid email or password");

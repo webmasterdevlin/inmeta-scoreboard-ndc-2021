@@ -12,7 +12,7 @@ import {
 const handler = nc()
   .get(async (req: NextApiRequest, res: NextApiResponse) => {
     const token = req.headers["x-auth"];
-    if (token !== "inmeta") {
+    if (token !== "pass") {
       res.status(401).json({ msg: "No token" });
       return;
     }
@@ -28,7 +28,7 @@ const handler = nc()
   })
   .delete(async (req: NextApiRequest, res: NextApiResponse) => {
     const token = req.headers["x-auth"];
-    if (token !== "inmeta") {
+    if (token !== "pass") {
       res.status(401).json({ msg: "No token" });
       return;
     }
@@ -45,7 +45,7 @@ const handler = nc()
   })
   .put(async (req: NextApiRequest, res: NextApiResponse) => {
     const token = req.headers["x-auth"];
-    if (token !== "inmeta") {
+    if (token !== "pass") {
       res.status(401).json({ msg: "No token" });
       return;
     }

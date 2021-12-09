@@ -13,7 +13,7 @@ const Footer = () => {
               justifyContent={"center"}
               alignItems={"center"}
             >
-              <Typography>© 2021 - inmeta (part of Crayon)</Typography>
+              <Typography>© 2021</Typography>
             </Box>
           </Toolbar>
         </Container>
