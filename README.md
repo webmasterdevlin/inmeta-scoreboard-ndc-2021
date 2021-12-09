@@ -11,13 +11,13 @@
 
 ### SPA
 - for JWT authentication
-- usually an instance where the server accepts requests from different web apps and mobiles apps
+- JWT is a stateless authentication makes web servers scalable but harder to make the security right
+- SPA is usually seen on cases where the server accepts requests from different web apps and mobiles apps
 - can still navigate even if the app is disconnected from the internet
 - faster because it doesn't need to load the entire app on every page load
 
 ### SSR
-- for cookie based authentication
-- can create session id
+- for cookie based authentication which maintains a session IDs
 - SEO friendly
 - can store api_keys
 - reverse proxy
@@ -37,7 +37,8 @@
 ## CosmosDB
 - the cosmosdb code is located in the src/services/api/playerService.ts
 - cosmosdb is a NoSQL database but different from MongoDB
-- It has partition key which is similar to Casandra db 
+- It has partition key which is similar to Casandra db
+- CosmosDB alternatives are MongoDB Atlas and Google Firebase. Both have libraries and SDKs to connect to the database
 
 ## Steps
 - npx create-next-app my-app --ts
