@@ -1,4 +1,4 @@
-# Leading board
+# Leaders board
 - Built using full-stack Next.js and Microsoft Azure CosmosDB
 - Next.js is a full-stack React framework
 - The Microsoft Azure CosmosDB database is used to store the data
