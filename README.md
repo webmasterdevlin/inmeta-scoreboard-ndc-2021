@@ -34,6 +34,9 @@
 - APIs codes are located inside the src/pages/api/**
 - Endpoints are based on the pathname of folders or Tsx files inside the src/pages/api directory
 
+## CosmosDB
+- the cosmosdb code is located in the src/services/api/playerService.ts
+
 ## Steps
 - npx create-next-app my-app --ts
 - cd my-app
