@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-  workflow_dispatch:
 
 jobs:
   build:
@@ -22,6 +21,16 @@ jobs:
         registry: https://index.docker.io/v1/
         username: ${{ secrets.AzureAppService_ContainerUsername_7abcb5dbeb1a4901bfb6263d02887818 }}
         password: ${{ secrets.AzureAppService_ContainerPassword_e587ecb0193e422596518cb8d6eb2d6e }}
+
+    - name: Make envfile
+      uses: SpicyPizza/create-envfile@v1.2
+      with:
+        envkey_COSMOS_ENDPOINT: ${{secrets.COSMOS_ENDPOINT}}
+        envkey_COSMOS_KEY: ${{secrets.COSMOS_KEY}}
+        envkey_COSMOS_DATABASE_ID: ${{secrets.COSMOS_DATABASE_ID}}
+        envkey_COSMOS_CONTAINER_ID: ${{secrets.COSMOS_CONTAINER_ID}}
+        directory: ./
+        file_name: .env.local
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
